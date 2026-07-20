@@ -1,4 +1,4 @@
-# Portfolio — Gaurav Shrivastava
+# Gaurav Shrivastava — Portfolio
 
 Personal portfolio site built with React, Vite, and Tailwind CSS.
 
@@ -8,9 +8,9 @@ Personal portfolio site built with React, Vite, and Tailwind CSS.
 
 - Light/dark theme toggle with persisted preference
 - Animated sections (Hero, About, Skills, Projects, Experience, Contact) powered by Framer Motion
-- Contact form wired to [EmailJS](https://www.emailjs.com/) — no backend required
+- Contact form wired to [EmailJS](https://www.emailjs.com/) for direct message delivery — no backend required
 - Built-in AI chatbot assistant with a knowledge base, typing animation, and suggested prompts
-- Fully responsive, scroll-based navigation and progress indicator
+- Fully responsive design with scroll-based navigation and progress indicator
 
 ## Tech Stack
 
@@ -24,13 +24,8 @@ Personal portfolio site built with React, Vite, and Tailwind CSS.
 
 ```bash
 npm install
-cp .env.example .env   # fill in your EmailJS credentials
 npm run dev
 ```
-
-### Environment Variables
-
-See [.env.example](.env.example) for the required EmailJS keys (`VITE_EMAILJS_SERVICE_ID`, `VITE_EMAILJS_TEMPLATE_ID`, `VITE_EMAILJS_PUBLIC_KEY`).
 
 ## Build
 
