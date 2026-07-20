@@ -43,12 +43,12 @@ export default function Hero() {
       <motion.div
         animate={{ x: [0, 25, 0], y: [0, -25, 0] }}
         transition={{ duration: 9, repeat: Infinity, ease: 'easeInOut' }}
-        className="orb w-[420px] h-[420px] bg-primary/7 top-16 -left-24"
+        className="orb w-[420px] h-[420px] bg-primary/8 top-16 -left-24"
       />
       <motion.div
         animate={{ x: [0, -18, 0], y: [0, 18, 0] }}
         transition={{ duration: 11, repeat: Infinity, ease: 'easeInOut', delay: 3 }}
-        className="orb w-72 h-72 bg-secondary/7 bottom-24 -right-12"
+        className="orb w-72 h-72 bg-secondary/8 bottom-24 -right-12"
       />
 
       <div className="relative z-10 max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-16 items-center w-full">
@@ -72,9 +72,9 @@ export default function Hero() {
             transition={{ delay: 0.25, duration: 0.65 }}
             className="text-5xl md:text-[4.2rem] font-black leading-[1.08] mb-5"
           >
-            <span className="block text-white/85 text-3xl md:text-4xl font-semibold mb-1">Hi, I'm</span>
-            <span className="glitch block text-gradient" data-text="Gaurav">Gaurav</span>
-            <span className="block text-white/90">Shrivastava</span>
+            <span className="block text-slate-500 dark:text-slate-400 text-3xl md:text-4xl font-semibold mb-1">Hi, I'm</span>
+            <span className="block text-gradient">Gaurav</span>
+            <span className="block text-slate-900 dark:text-white">Shrivastava</span>
           </motion.h1>
 
           {/* Typewriter */}
@@ -96,7 +96,7 @@ export default function Hero() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.6 }}
-            className="flex items-center gap-1.5 text-white/35 text-xs font-mono mb-7"
+            className="flex items-center gap-1.5 text-slate-400 dark:text-slate-500 text-xs font-mono mb-7"
           >
             <MapPin size={11} />
             Satna, MP, India · +91 70899 55082
@@ -107,10 +107,10 @@ export default function Hero() {
             initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.7 }}
-            className="text-white/50 text-sm leading-relaxed max-w-[480px] mb-8"
+            className="text-slate-500 dark:text-slate-400 text-sm leading-relaxed max-w-[480px] mb-8"
           >
             CS undergrad building real-world, production-grade web apps — from a
-            <span className="text-primary/80"> Pan-India government portal</span> for the RPF to peer-to-peer
+            <span className="text-primary font-medium"> Pan-India government portal</span> for the RPF to peer-to-peer
             platforms with real-time features. I care about code that actually works, scales, and doesn't break at 2 AM.
           </motion.p>
 
@@ -123,7 +123,7 @@ export default function Hero() {
           >
             <button
               onClick={() => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })}
-              className="group relative px-6 py-3 rounded-xl bg-gradient-to-r from-primary to-secondary text-dark font-bold text-sm overflow-hidden hover:shadow-xl hover:shadow-primary/30 hover:scale-[1.03] transition-all duration-300"
+              className="group relative px-6 py-3 rounded-xl bg-gradient-to-r from-primary to-secondary text-white font-bold text-sm overflow-hidden shadow-lg shadow-primary/20 hover:shadow-xl hover:shadow-primary/30 hover:scale-[1.03] transition-all duration-300"
             >
               <span className="relative z-10 flex items-center gap-2">
                 <Code2 size={15} />
@@ -134,7 +134,7 @@ export default function Hero() {
             <a
               href="/Gaurav_Shrivastava_Resume.pdf"
               download
-              className="px-6 py-3 rounded-xl border border-white/10 text-white/65 font-semibold text-sm hover:border-primary/40 hover:text-white hover:bg-primary/5 transition-all duration-300"
+              className="px-6 py-3 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 text-slate-600 dark:text-slate-300 font-semibold text-sm hover:border-primary/40 hover:text-primary hover:bg-primary/5 transition-all duration-300"
             >
               Download CV
             </a>
@@ -158,14 +158,14 @@ export default function Hero() {
                 href={href}
                 target={label !== 'Phone' && label !== 'Email' ? '_blank' : undefined}
                 rel="noopener noreferrer"
-                className="w-9 h-9 rounded-lg border border-white/8 flex items-center justify-center text-white/35 hover:text-primary hover:border-primary/35 hover:bg-primary/5 transition-all duration-300 hover:shadow-md hover:shadow-primary/15"
+                className="w-9 h-9 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 flex items-center justify-center text-slate-400 dark:text-slate-500 hover:text-primary hover:border-primary/35 hover:bg-primary/5 transition-all duration-300 hover:shadow-md hover:shadow-primary/10"
                 aria-label={label}
               >
                 <Icon size={15} />
               </a>
             ))}
-            <div className="w-px h-4 bg-white/10 mx-1" />
-            <span className="text-white/20 text-[11px] font-mono">gauravshrivastava.web@gmail.com</span>
+            <div className="w-px h-4 bg-slate-200 dark:bg-slate-700 mx-1" />
+            <span className="text-slate-400 dark:text-slate-500 text-[11px] font-mono">gauravshrivastava.web@gmail.com</span>
           </motion.div>
         </div>
 
@@ -181,19 +181,19 @@ export default function Hero() {
             transition={{ duration: 5.5, repeat: Infinity, ease: 'easeInOut' }}
             className="relative"
           >
-            <div className="glass neon-border rounded-2xl overflow-hidden shadow-2xl shadow-primary/8">
+            <div className="bg-slate-900 border border-slate-800 rounded-2xl overflow-hidden shadow-2xl shadow-slate-900/20">
               {/* Window bar */}
               <div className="flex items-center gap-2 px-4 py-3 border-b border-white/5">
                 <div className="w-2.5 h-2.5 rounded-full bg-red-500/55" />
                 <div className="w-2.5 h-2.5 rounded-full bg-yellow-500/55" />
                 <div className="w-2.5 h-2.5 rounded-full bg-green-500/55" />
-                <span className="text-white/18 text-xs font-mono ml-2">gaurav.py</span>
+                <span className="text-white/25 text-xs font-mono ml-2">gaurav.py</span>
               </div>
               {/* Code content */}
               <div className="p-6 font-mono text-[13px] leading-7">
-                <div><span className="text-secondary">class</span> <span className="text-primary">Developer</span><span className="text-white/40">:</span></div>
+                <div><span className="text-indigo-400">class</span> <span className="text-blue-400">Developer</span><span className="text-white/40">:</span></div>
                 <div className="pl-6 mt-1">
-                  <div><span className="text-secondary">def</span> <span className="text-accent">__init__</span><span className="text-white/40">(self):</span></div>
+                  <div><span className="text-indigo-400">def</span> <span className="text-emerald-400">__init__</span><span className="text-white/40">(self):</span></div>
                   <div className="pl-6">
                     <div><span className="text-white/50">self.</span><span className="text-orange-300/80">name</span> <span className="text-white/40">=</span> <span className="text-green-300/75">"Gaurav Shrivastava"</span></div>
                     <div><span className="text-white/50">self.</span><span className="text-orange-300/80">age</span> <span className="text-white/40">=</span> <span className="text-yellow-300/70">20</span></div>
@@ -202,7 +202,7 @@ export default function Hero() {
                     <div className="pl-4"><span className="text-green-300/75">"Node.js"</span><span className="text-white/40">,</span> <span className="text-green-300/75">"PostgreSQL"</span></div>
                     <div><span className="text-white/40">]</span></div>
                     <div><span className="text-white/50">self.</span><span className="text-orange-300/80">location</span> <span className="text-white/40">=</span> <span className="text-green-300/75">"Satna, MP 🇮🇳"</span></div>
-                    <div><span className="text-white/50">self.</span><span className="text-orange-300/80">available</span> <span className="text-white/40">=</span> <span className="text-accent">True</span></div>
+                    <div><span className="text-white/50">self.</span><span className="text-orange-300/80">available</span> <span className="text-white/40">=</span> <span className="text-emerald-400">True</span></div>
                   </div>
                 </div>
               </div>
@@ -212,7 +212,7 @@ export default function Hero() {
             <motion.div
               animate={{ y: [0, -6, 0] }}
               transition={{ duration: 3.2, repeat: Infinity, ease: 'easeInOut' }}
-              className="absolute -top-4 -right-5 glass neon-border px-3 py-2 rounded-xl text-xs font-mono text-accent flex items-center gap-2"
+              className="absolute -top-4 -right-5 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 shadow-lg shadow-slate-900/5 px-3 py-2 rounded-xl text-xs font-mono text-accent flex items-center gap-2"
             >
               <span className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse" />
               Govt. of India Projects
@@ -221,7 +221,7 @@ export default function Hero() {
             <motion.div
               animate={{ y: [0, 5, 0] }}
               transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut', delay: 1.2 }}
-              className="absolute -bottom-4 -left-5 glass neon-border px-3 py-2 rounded-xl text-xs font-mono text-primary flex items-center gap-2"
+              className="absolute -bottom-4 -left-5 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 shadow-lg shadow-slate-900/5 px-3 py-2 rounded-xl text-xs font-mono text-primary flex items-center gap-2"
             >
               <Code2 size={11} />
               B.Tech CSE · CGPA 7.0
@@ -235,7 +235,7 @@ export default function Hero() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 1.4 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1.5 text-white/25 text-[11px] font-mono"
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1.5 text-slate-400 dark:text-slate-500 text-[11px] font-mono"
       >
         <span>scroll down</span>
         <motion.div animate={{ y: [0, 5, 0] }} transition={{ duration: 1.4, repeat: Infinity }}>

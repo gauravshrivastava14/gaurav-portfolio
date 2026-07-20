@@ -17,7 +17,7 @@ const timeline = [
       'Optimized performance and built a responsive, device-agnostic UI for field officers.',
     ],
     stack: ['Django', 'Python', 'PostgreSQL', 'RBAC', 'JWT', 'Gunicorn'],
-    color: '#00d4ff',
+    color: '#2563eb',
     isGovt: true,
   },
   {
@@ -32,7 +32,7 @@ const timeline = [
       'Operated within a structured government delivery ecosystem — strict QA, compliance, and timelines.',
     ],
     stack: ['PHP', 'MySQL', 'REST APIs', 'MVC'],
-    color: '#f59e0b',
+    color: '#d97706',
     isGovt: true,
   },
   {
@@ -47,7 +47,7 @@ const timeline = [
       'Built multiple full-stack projects during coursework — PRATHAM and SkillSwap among them.',
     ],
     stack: ['Python', 'C++', 'Java', 'SQL', 'DSA'],
-    color: '#7c3aed',
+    color: '#4f46e5',
     isGovt: false,
   },
   {
@@ -58,7 +58,7 @@ const timeline = [
     location: 'Satna, MP',
     points: ['Completed Class XII with Science stream.'],
     stack: [],
-    color: '#06ffa5',
+    color: '#059669',
     isGovt: false,
   },
   {
@@ -69,7 +69,7 @@ const timeline = [
     location: 'Satna, MP',
     points: ['Completed Class X from CBSE-affiliated school.'],
     stack: [],
-    color: '#06ffa5',
+    color: '#059669',
     isGovt: false,
   },
 ]
@@ -79,7 +79,7 @@ export default function Experience() {
 
   return (
     <section id="experience" ref={ref} className="relative py-28 overflow-hidden">
-      <div className="orb w-72 h-72 bg-secondary/4 top-24 left-0 pointer-events-none" />
+      <div className="orb w-72 h-72 bg-secondary/5 top-24 left-0 pointer-events-none" />
 
       <div className="max-w-5xl mx-auto px-6 relative z-10">
         <motion.div
@@ -88,7 +88,7 @@ export default function Experience() {
           className="flex items-center gap-4 mb-16"
         >
           <span className="text-primary font-mono text-sm">04.</span>
-          <h2 className="text-4xl md:text-5xl font-black text-white">Experience</h2>
+          <h2 className="text-4xl md:text-5xl font-black text-slate-900 dark:text-white">Experience</h2>
           <div className="flex-1 h-px bg-gradient-to-r from-primary/30 to-transparent" />
         </motion.div>
 
@@ -107,17 +107,17 @@ export default function Experience() {
               >
                 {/* Dot */}
                 <div
-                  className="absolute left-[14px] top-6 w-4 h-4 rounded-full border-2 hidden md:flex items-center justify-center -translate-x-1/2"
-                  style={{ borderColor: item.color, background: '#080810', boxShadow: `0 0 10px ${item.color}50` }}
+                  className="absolute left-[14px] top-6 w-4 h-4 rounded-full border-2 hidden md:flex items-center justify-center -translate-x-1/2 bg-slate-50 dark:bg-slate-950"
+                  style={{ borderColor: item.color }}
                 >
                   <div className="w-1.5 h-1.5 rounded-full" style={{ background: item.color }} />
                 </div>
 
                 <div
-                  className="glass rounded-2xl p-5 border border-white/6 hover:border-opacity-30 transition-all duration-300 group"
+                  className="glass rounded-2xl p-5 border border-slate-200 dark:border-slate-800 hover:border-opacity-30 transition-all duration-300 group"
                   style={{}}
-                  onMouseEnter={e => (e.currentTarget.style.borderColor = item.color + '28')}
-                  onMouseLeave={e => (e.currentTarget.style.borderColor = 'rgba(255,255,255,0.06)')}
+                  onMouseEnter={e => (e.currentTarget.style.borderColor = item.color + '40')}
+                  onMouseLeave={e => (e.currentTarget.style.borderColor = '')}
                 >
                   <div className="flex flex-wrap items-start justify-between gap-3 mb-3">
                     <div>
@@ -135,15 +135,15 @@ export default function Experience() {
                           </span>
                         )}
                       </div>
-                      <h3 className="text-base font-bold text-white leading-snug">{item.role}</h3>
-                      <p className="text-[13px] font-medium mt-0.5" style={{ color: item.color + 'cc' }}>{item.org}</p>
+                      <h3 className="text-base font-bold text-slate-900 dark:text-white leading-snug">{item.role}</h3>
+                      <p className="text-[13px] font-medium mt-0.5" style={{ color: item.color }}>{item.org}</p>
                     </div>
                     <div className="text-right shrink-0">
-                      <div className="flex items-center gap-1.5 text-[11px] text-white/35 font-mono justify-end">
+                      <div className="flex items-center gap-1.5 text-[11px] text-slate-400 dark:text-slate-500 font-mono justify-end">
                         <Calendar size={10} />
                         {item.period}
                       </div>
-                      <div className="flex items-center gap-1.5 text-[11px] text-white/25 justify-end mt-0.5">
+                      <div className="flex items-center gap-1.5 text-[11px] text-slate-400 dark:text-slate-500 justify-end mt-0.5">
                         <MapPin size={10} />
                         {item.location}
                       </div>
@@ -153,7 +153,7 @@ export default function Experience() {
                   {item.points.length > 0 && (
                     <ul className="mb-4 space-y-1.5">
                       {item.points.map((pt, pi) => (
-                        <li key={pi} className="flex items-start gap-2 text-[13px] text-white/45 leading-relaxed">
+                        <li key={pi} className="flex items-start gap-2 text-[13px] text-slate-500 dark:text-slate-400 leading-relaxed">
                           <span className="mt-1.5 w-1 h-1 rounded-full shrink-0" style={{ background: item.color }} />
                           {pt}
                         </li>
@@ -167,7 +167,7 @@ export default function Experience() {
                         <span
                           key={tech}
                           className="text-[11px] px-2.5 py-0.5 rounded-full font-mono border"
-                          style={{ background: item.color + '0d', color: item.color + 'bb', borderColor: item.color + '1a' }}
+                          style={{ background: item.color + '0d', color: item.color, borderColor: item.color + '22' }}
                         >
                           {tech}
                         </span>

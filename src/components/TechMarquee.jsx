@@ -10,10 +10,10 @@ const TECHS = [
 
 export default function TechMarquee() {
   return (
-    <div className="relative py-8 overflow-hidden border-y border-white/5">
+    <div className="relative py-8 overflow-hidden border-y border-slate-200 dark:border-slate-800">
       {/* Fade masks */}
-      <div className="absolute left-0 top-0 bottom-0 w-24 z-10 bg-gradient-to-r from-dark to-transparent pointer-events-none" />
-      <div className="absolute right-0 top-0 bottom-0 w-24 z-10 bg-gradient-to-l from-dark to-transparent pointer-events-none" />
+      <div className="absolute left-0 top-0 bottom-0 w-24 z-10 bg-gradient-to-r from-slate-50 dark:from-slate-950 to-transparent pointer-events-none" />
+      <div className="absolute right-0 top-0 bottom-0 w-24 z-10 bg-gradient-to-l from-slate-50 dark:from-slate-950 to-transparent pointer-events-none" />
 
       <motion.div
         animate={{ x: ['0%', '-50%'] }}
@@ -22,7 +22,7 @@ export default function TechMarquee() {
       >
         {[...TECHS, ...TECHS].map((tech, i) => (
           <div key={i} className="flex items-center gap-8 shrink-0">
-            <span className="text-[13px] font-mono text-white/30 hover:text-primary transition-colors duration-200 cursor-default">
+            <span className="text-[13px] font-mono text-slate-400 dark:text-slate-500 hover:text-primary transition-colors duration-200 cursor-default">
               {tech}
             </span>
             <span className="w-1 h-1 rounded-full bg-primary/25 shrink-0" />

@@ -49,7 +49,7 @@ export default function About() {
           className="flex items-center gap-4 mb-16"
         >
           <span className="text-primary font-mono text-sm">01.</span>
-          <h2 className="text-4xl md:text-5xl font-black text-white">About Me</h2>
+          <h2 className="text-4xl md:text-5xl font-black text-slate-900 dark:text-white">About Me</h2>
           <div className="flex-1 h-px bg-gradient-to-r from-primary/30 to-transparent" />
         </motion.div>
 
@@ -57,7 +57,7 @@ export default function About() {
           {/* Bio */}
           <div className="space-y-5">
             {[
-              `I'm a 21-year-old Computer Science undergraduate at Vindhya Institute of Technology and Science (RGPV), Satna — and I've already shipped two production systems for the Government of India. Not side projects. Real portals used by actual officers at the national level.`,
+              `I'm a 20-year-old Computer Science undergraduate at Vindhya Institute of Technology and Science (RGPV), Satna — and I've already shipped two production systems for the Government of India. Not side projects. Real portals used by actual officers at the national level.`,
               `The PRATHAM portal I built for the Railway Protection Force handles training and HR aptitude data for a Pan-India deployment. I designed the entire system — Django backend, PostgreSQL schema, role-based access for Zonal, Divisional, and Post-level users — working directly under the IG, RPF Lucknow.`,
               `I don't wait to "feel ready." I pick up what the project needs — whether that's Django, PHP, React, or raw PostgreSQL — and I ship. That's the only way to build things that matter before your degree is done.`,
             ].map((text, i) => (
@@ -67,7 +67,7 @@ export default function About() {
                 variants={fadeUp}
                 initial="hidden"
                 animate={inView ? 'show' : 'hidden'}
-                className="text-white/52 leading-relaxed text-[15px]"
+                className="text-slate-600 dark:text-slate-400 leading-relaxed text-[15px]"
               >
                 {text}
               </motion.p>
@@ -86,7 +86,7 @@ export default function About() {
                   className="glass neon-border rounded-xl p-4 text-center group hover:border-primary/35 transition-all duration-300"
                 >
                   <div className="text-3xl font-black text-gradient mb-1">{value}</div>
-                  <div className="text-[11px] text-white/38 font-mono tracking-wide">{label}</div>
+                  <div className="text-[11px] text-slate-500 dark:text-slate-400 font-mono tracking-wide">{label}</div>
                 </div>
               ))}
             </motion.div>
@@ -97,7 +97,7 @@ export default function About() {
               variants={fadeUp}
               initial="hidden"
               animate={inView ? 'show' : 'hidden'}
-              className="glass rounded-xl p-4 border border-white/6"
+              className="glass rounded-xl p-4 border border-slate-200 dark:border-slate-800"
             >
               <div className="grid grid-cols-2 gap-2 text-[12px] font-mono">
                 {[
@@ -109,8 +109,8 @@ export default function About() {
                   ['Phone', '+91 70899 55082'],
                 ].map(([key, val]) => (
                   <div key={key} className="flex flex-col gap-0.5">
-                    <span className="text-white/25">{key}</span>
-                    <span className="text-white/65 truncate">{val}</span>
+                    <span className="text-slate-400 dark:text-slate-500">{key}</span>
+                    <span className="text-slate-700 dark:text-slate-300 truncate">{val}</span>
                   </div>
                 ))}
               </div>
@@ -129,12 +129,12 @@ export default function About() {
                 whileHover={{ x: 5 }}
                 className="glass glass-hover neon-border rounded-xl p-5 flex items-start gap-4 cursor-default"
               >
-                <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-primary/15 to-secondary/15 border border-primary/15 flex items-center justify-center shrink-0">
+                <div className="w-10 h-10 rounded-lg bg-gradient-to-br from-primary/10 to-secondary/10 border border-primary/15 flex items-center justify-center shrink-0">
                   <Icon size={17} className="text-primary" />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-white mb-1 text-[15px]">{title}</h3>
-                  <p className="text-white/42 text-[13px] leading-relaxed">{desc}</p>
+                  <h3 className="font-semibold text-slate-900 dark:text-white mb-1 text-[15px]">{title}</h3>
+                  <p className="text-slate-500 dark:text-slate-400 text-[13px] leading-relaxed">{desc}</p>
                 </div>
               </motion.div>
             ))}

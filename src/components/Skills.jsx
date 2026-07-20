@@ -4,7 +4,7 @@ import { useInView } from 'react-intersection-observer'
 const categories = [
   {
     label: 'Frontend',
-    color: '#00d4ff',
+    color: '#2563eb',
     skills: [
       { name: 'React.js', level: 82 },
       { name: 'HTML5 / CSS3', level: 90 },
@@ -15,7 +15,7 @@ const categories = [
   },
   {
     label: 'Backend',
-    color: '#7c3aed',
+    color: '#4f46e5',
     skills: [
       { name: 'Django (Python)', level: 88 },
       { name: 'Node.js / Express.js', level: 82 },
@@ -26,7 +26,7 @@ const categories = [
   },
   {
     label: 'Databases',
-    color: '#06ffa5',
+    color: '#059669',
     skills: [
       { name: 'PostgreSQL', level: 82 },
       { name: 'MySQL', level: 76 },
@@ -37,7 +37,7 @@ const categories = [
   },
   {
     label: 'Tools & DevOps',
-    color: '#f59e0b',
+    color: '#d97706',
     skills: [
       { name: 'Git / GitHub', level: 90 },
       { name: 'Netlify / Vercel', level: 82 },
@@ -61,7 +61,7 @@ function SkillBar({ name, level, color, index, inView }) {
   return (
     <div className="group">
       <div className="flex justify-between items-center mb-1.5">
-        <span className="text-[13px] text-white/65 group-hover:text-white/90 transition-colors duration-200">{name}</span>
+        <span className="text-[13px] text-slate-600 dark:text-slate-400 group-hover:text-slate-900 dark:group-hover:text-white transition-colors duration-200">{name}</span>
         <motion.span
           initial={{ opacity: 0 }}
           animate={inView ? { opacity: 1 } : {}}
@@ -72,7 +72,7 @@ function SkillBar({ name, level, color, index, inView }) {
           {level}%
         </motion.span>
       </div>
-      <div className="h-1.5 bg-white/5 rounded-full overflow-hidden">
+      <div className="h-1.5 bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden">
         <motion.div
           initial={{ width: 0 }}
           animate={inView ? { width: `${level}%` } : {}}
@@ -81,8 +81,8 @@ function SkillBar({ name, level, color, index, inView }) {
           style={{ background: `linear-gradient(90deg, ${color}70, ${color})` }}
         >
           <div
-            className="absolute right-0 top-1/2 -translate-y-1/2 w-2 h-2 rounded-full bg-white"
-            style={{ boxShadow: `0 0 8px ${color}` }}
+            className="absolute right-0 top-1/2 -translate-y-1/2 w-2 h-2 rounded-full bg-white dark:bg-slate-900 border"
+            style={{ borderColor: color, boxShadow: `0 0 6px ${color}55` }}
           />
         </motion.div>
       </div>
@@ -95,7 +95,7 @@ export default function Skills() {
 
   return (
     <section id="skills" ref={ref} className="relative py-28 overflow-hidden">
-      <div className="orb w-[480px] h-[480px] bg-secondary/4 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none" />
+      <div className="orb w-[480px] h-[480px] bg-secondary/5 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         <motion.div
@@ -104,7 +104,7 @@ export default function Skills() {
           className="flex items-center gap-4 mb-14"
         >
           <span className="text-primary font-mono text-sm">02.</span>
-          <h2 className="text-4xl md:text-5xl font-black text-white">Skills</h2>
+          <h2 className="text-4xl md:text-5xl font-black text-slate-900 dark:text-white">Skills</h2>
           <div className="flex-1 h-px bg-gradient-to-r from-primary/30 to-transparent" />
         </motion.div>
 
@@ -122,7 +122,7 @@ export default function Skills() {
               animate={inView ? { opacity: 1, scale: 1 } : {}}
               transition={{ delay: i * 0.03 }}
               whileHover={{ scale: 1.1, y: -3 }}
-              className="px-3.5 py-1.5 rounded-full text-xs font-mono glass neon-border text-white/55 hover:text-primary hover:border-primary/40 transition-all duration-200 cursor-default"
+              className="px-3.5 py-1.5 rounded-full text-xs font-mono glass neon-border text-slate-600 dark:text-slate-400 hover:text-primary hover:border-primary/40 transition-all duration-200 cursor-default"
             >
               {tech}
             </motion.span>
@@ -141,7 +141,7 @@ export default function Skills() {
             >
               <div className="flex items-center gap-3 mb-6">
                 <div className="w-2 h-6 rounded-full" style={{ background: cat.color }} />
-                <h3 className="font-bold text-white/90 text-[13px] tracking-widest uppercase">{cat.label}</h3>
+                <h3 className="font-bold text-slate-900 dark:text-white text-[13px] tracking-widest uppercase">{cat.label}</h3>
               </div>
               <div className="space-y-4">
                 {cat.skills.map((s, si) => (
@@ -161,7 +161,7 @@ export default function Skills() {
         >
           <div className="flex items-center gap-3 mb-5">
             <div className="w-2 h-6 rounded-full bg-gradient-to-b from-primary to-secondary" />
-            <h3 className="font-bold text-white/90 text-[13px] tracking-widest uppercase">Languages</h3>
+            <h3 className="font-bold text-slate-900 dark:text-white text-[13px] tracking-widest uppercase">Languages</h3>
           </div>
           <div className="grid sm:grid-cols-2 gap-4">
             {[
@@ -170,10 +170,10 @@ export default function Skills() {
             ].map(({ lang, level, pct }) => (
               <div key={lang}>
                 <div className="flex justify-between mb-1.5">
-                  <span className="text-sm text-white/75 font-medium">{lang}</span>
-                  <span className="text-[11px] text-white/35 font-mono">{level}</span>
+                  <span className="text-sm text-slate-700 dark:text-slate-300 font-medium">{lang}</span>
+                  <span className="text-[11px] text-slate-400 dark:text-slate-500 font-mono">{level}</span>
                 </div>
-                <div className="h-1.5 bg-white/5 rounded-full overflow-hidden">
+                <div className="h-1.5 bg-slate-100 dark:bg-slate-800 rounded-full overflow-hidden">
                   <motion.div
                     initial={{ width: 0 }}
                     animate={inView ? { width: `${pct}%` } : {}}

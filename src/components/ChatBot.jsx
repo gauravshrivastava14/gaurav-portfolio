@@ -114,21 +114,21 @@ function Bubble({ msg }) {
       {/* Avatar */}
       <div className={`w-7 h-7 rounded-full shrink-0 flex items-center justify-center ${
         isBot
-          ? 'bg-gradient-to-br from-primary/30 to-secondary/30 border border-primary/25'
-          : 'bg-white/8 border border-white/10'
+          ? 'bg-gradient-to-br from-primary/15 to-secondary/15 border border-primary/20'
+          : 'bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700'
       }`}>
-        {isBot ? <Bot size={13} className="text-primary" /> : <User size={13} className="text-white/60" />}
+        {isBot ? <Bot size={13} className="text-primary" /> : <User size={13} className="text-slate-500 dark:text-slate-400" />}
       </div>
 
       {/* Bubble */}
       <div className={`max-w-[82%] px-3.5 py-2.5 rounded-2xl text-[13px] leading-relaxed whitespace-pre-wrap ${
         isBot
-          ? 'bg-white/5 border border-white/8 text-white/80 rounded-tl-sm'
-          : 'bg-gradient-to-br from-primary/20 to-secondary/20 border border-primary/20 text-white rounded-tr-sm'
+          ? 'bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 rounded-tl-sm'
+          : 'bg-gradient-to-br from-primary to-secondary border border-primary/20 text-white rounded-tr-sm'
       }`}>
         {msg.text.split(/(\*\*[^*]+\*\*)/).map((part, i) =>
           part.startsWith('**') && part.endsWith('**')
-            ? <strong key={i} className={isBot ? 'text-white font-semibold' : 'text-primary font-semibold'}>{part.slice(2, -2)}</strong>
+            ? <strong key={i} className={isBot ? 'text-slate-900 dark:text-white font-semibold' : 'text-white font-semibold'}>{part.slice(2, -2)}</strong>
             : part
         )}
       </div>
@@ -139,10 +139,10 @@ function Bubble({ msg }) {
 function TypingDots() {
   return (
     <div className="flex gap-2.5">
-      <div className="w-7 h-7 rounded-full bg-gradient-to-br from-primary/30 to-secondary/30 border border-primary/25 flex items-center justify-center shrink-0">
+      <div className="w-7 h-7 rounded-full bg-gradient-to-br from-primary/15 to-secondary/15 border border-primary/20 flex items-center justify-center shrink-0">
         <Bot size={13} className="text-primary" />
       </div>
-      <div className="px-4 py-3 rounded-2xl rounded-tl-sm bg-white/5 border border-white/8 flex items-center gap-1.5">
+      <div className="px-4 py-3 rounded-2xl rounded-tl-sm bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700 flex items-center gap-1.5">
         {[0, 1, 2].map(i => (
           <motion.div
             key={i}
@@ -215,7 +215,7 @@ export default function ChatBot() {
           {!open && unread > 0 && (
             <motion.div
               initial={{ scale: 0 }} animate={{ scale: 1 }} exit={{ scale: 0 }}
-              className="absolute -top-1.5 -right-1.5 w-5 h-5 rounded-full bg-accent text-dark text-[10px] font-bold flex items-center justify-center z-10"
+              className="absolute -top-1.5 -right-1.5 w-5 h-5 rounded-full bg-accent text-white text-[10px] font-bold flex items-center justify-center z-10"
             >
               {unread}
             </motion.div>
@@ -226,16 +226,16 @@ export default function ChatBot() {
           whileHover={{ scale: 1.08 }}
           whileTap={{ scale: 0.94 }}
           onClick={() => setOpen(o => !o)}
-          className="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary to-secondary flex items-center justify-center shadow-xl shadow-primary/30 hover:shadow-primary/50 transition-shadow duration-300"
+          className="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary to-secondary flex items-center justify-center shadow-xl shadow-primary/25 hover:shadow-primary/40 transition-shadow duration-300"
         >
           <AnimatePresence mode="wait">
             {open ? (
               <motion.div key="x" initial={{ rotate: -90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }} exit={{ rotate: 90, opacity: 0 }} transition={{ duration: 0.2 }}>
-                <X size={22} className="text-dark" />
+                <X size={22} className="text-white" />
               </motion.div>
             ) : (
               <motion.div key="chat" initial={{ rotate: 90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }} exit={{ rotate: -90, opacity: 0 }} transition={{ duration: 0.2 }}>
-                <MessageSquare size={22} className="text-dark" />
+                <MessageSquare size={22} className="text-white" />
               </motion.div>
             )}
           </AnimatePresence>
@@ -258,22 +258,22 @@ export default function ChatBot() {
             className="fixed bottom-24 right-6 z-50 w-[350px] sm:w-[390px] flex flex-col"
             style={{ maxHeight: 'min(540px, calc(100vh - 120px))' }}
           >
-            <div className="glass neon-border rounded-2xl overflow-hidden flex flex-col shadow-2xl shadow-primary/10 h-full">
+            <div className="glass neon-border rounded-2xl overflow-hidden flex flex-col shadow-2xl shadow-slate-900/10 h-full">
               {/* Header */}
-              <div className="flex items-center gap-3 px-4 py-3.5 border-b border-white/6 bg-gradient-to-r from-primary/8 to-secondary/8 shrink-0">
-                <div className="w-8 h-8 rounded-xl bg-gradient-to-br from-primary/30 to-secondary/30 border border-primary/25 flex items-center justify-center">
+              <div className="flex items-center gap-3 px-4 py-3.5 border-b border-slate-200 dark:border-slate-800 bg-gradient-to-r from-primary/5 to-secondary/5 shrink-0">
+                <div className="w-8 h-8 rounded-xl bg-gradient-to-br from-primary/15 to-secondary/15 border border-primary/25 flex items-center justify-center">
                   <Sparkles size={15} className="text-primary" />
                 </div>
                 <div className="flex-1 min-w-0">
-                  <div className="font-semibold text-white text-[13px]">Gaurav's Assistant</div>
-                  <div className="flex items-center gap-1.5 text-[11px] text-white/35 font-mono">
+                  <div className="font-semibold text-slate-900 dark:text-white text-[13px]">Gaurav's Assistant</div>
+                  <div className="flex items-center gap-1.5 text-[11px] text-slate-400 dark:text-slate-500 font-mono">
                     <span className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse" />
                     Online · Ask me anything
                   </div>
                 </div>
                 <button
                   onClick={() => setOpen(false)}
-                  className="w-7 h-7 rounded-lg bg-white/5 hover:bg-white/10 flex items-center justify-center text-white/40 hover:text-white transition-all"
+                  className="w-7 h-7 rounded-lg bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 flex items-center justify-center text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-all"
                 >
                   <ChevronDown size={14} />
                 </button>
@@ -302,15 +302,15 @@ export default function ChatBot() {
               )}
 
               {/* Input */}
-              <div className="px-3 pb-3 pt-2 border-t border-white/6 shrink-0">
-                <div className="flex items-center gap-2 bg-white/4 border border-white/8 rounded-xl px-3 py-2 focus-within:border-primary/35 transition-colors">
+              <div className="px-3 pb-3 pt-2 border-t border-slate-200 dark:border-slate-800 shrink-0">
+                <div className="flex items-center gap-2 bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700 rounded-xl px-3 py-2 focus-within:border-primary/40 transition-colors">
                   <input
                     ref={inputRef}
                     value={input}
                     onChange={e => setInput(e.target.value)}
                     onKeyDown={handleKey}
                     placeholder="Ask about skills, projects..."
-                    className="flex-1 bg-transparent text-[13px] text-white placeholder-white/22 outline-none font-mono"
+                    className="flex-1 bg-transparent text-[13px] text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 outline-none font-mono"
                     disabled={typing}
                   />
                   <button
@@ -318,7 +318,7 @@ export default function ChatBot() {
                     disabled={!input.trim() || typing}
                     className="w-7 h-7 rounded-lg bg-gradient-to-br from-primary to-secondary flex items-center justify-center disabled:opacity-30 hover:shadow-md hover:shadow-primary/30 transition-all"
                   >
-                    <Send size={12} className="text-dark" />
+                    <Send size={12} className="text-white" />
                   </button>
                 </div>
               </div>

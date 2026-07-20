@@ -11,7 +11,7 @@ const projects = [
     description:
       'Pan-India web portal for the Railway Protection Force to manage and analyze training and HR aptitude data. Built the entire system independently — Django backend, PostgreSQL, and role-based access for Zonal, Divisional, and Post-level officers. Deployed under supervision of DG, RPF.',
     stack: ['Django', 'Python', 'PostgreSQL', 'RBAC', 'JWT', 'Gunicorn'],
-    color: '#00d4ff',
+    color: '#2563eb',
     badge: 'Government · National',
     isGovt: true,
     github: null,
@@ -25,7 +25,7 @@ const projects = [
     description:
       'Peer-to-peer skill exchange platform where users teach and learn through smart matching. Features JWT auth, user roles, profiles, ratings, real-time chat via Socket.IO, and scheduling workflows. Built with clean architecture from DB design to frontend.',
     stack: ['React.js', 'Node.js', 'Express.js', 'MongoDB', 'Socket.IO', 'JWT', 'Tailwind CSS'],
-    color: '#7c3aed',
+    color: '#4f46e5',
     badge: 'Full Stack · Real-time',
     isGovt: false,
     github: 'https://github.com',
@@ -39,7 +39,7 @@ const projects = [
     description:
       'Backend modules for the Udyami Bharat 4.0 initiative under NPC, Delhi — supporting Industry 4.0 objectives. Built with PHP and MySQL, ensuring data integrity, security, and scalability in alignment with government compliance standards.',
     stack: ['PHP', 'MySQL', 'REST APIs', 'MVC Architecture'],
-    color: '#f59e0b',
+    color: '#d97706',
     badge: 'Government · National',
     isGovt: true,
     github: null,
@@ -53,7 +53,7 @@ const projects = [
     description:
       'Personal portfolio to showcase projects, skills, and contact info. Responsive UI, project listings, and live deployment. Previously deployed on Render/Netlify. Now rebuilt with React + Tailwind for a better experience.',
     stack: ['React.js', 'Tailwind CSS', 'Netlify', 'Vite'],
-    color: '#06ffa5',
+    color: '#059669',
     badge: 'Personal',
     isGovt: false,
     github: 'https://github.com',
@@ -73,7 +73,7 @@ function ProjectCard({ project, index, inView }) {
       onHoverStart={() => setHovered(true)}
       onHoverEnd={() => setHovered(false)}
       className="glass neon-border rounded-2xl overflow-hidden group relative flex flex-col"
-      style={{ borderColor: hovered ? project.color + '35' : undefined, transition: 'border-color 0.3s' }}
+      style={{ borderColor: hovered ? project.color + '40' : undefined, transition: 'border-color 0.3s' }}
     >
       {/* Top accent */}
       <div className="h-[3px] w-full" style={{ background: `linear-gradient(90deg, ${project.color}, transparent)` }} />
@@ -83,7 +83,7 @@ function ProjectCard({ project, index, inView }) {
         animate={{ opacity: hovered ? 1 : 0 }}
         transition={{ duration: 0.3 }}
         className="absolute inset-0 pointer-events-none"
-        style={{ background: `radial-gradient(ellipse at 0% 0%, ${project.color}07, transparent 55%)` }}
+        style={{ background: `radial-gradient(ellipse at 0% 0%, ${project.color}0d, transparent 55%)` }}
       />
 
       <div className="p-6 relative z-10 flex flex-col flex-1">
@@ -99,8 +99,8 @@ function ProjectCard({ project, index, inView }) {
                 {project.badge}
               </span>
             </div>
-            <h3 className="text-xl font-bold text-white leading-tight">{project.title}</h3>
-            <p className="text-[12px] text-white/38 font-mono mt-0.5 leading-snug">{project.subtitle}</p>
+            <h3 className="text-xl font-bold text-slate-900 dark:text-white leading-tight">{project.title}</h3>
+            <p className="text-[12px] text-slate-400 dark:text-slate-500 font-mono mt-0.5 leading-snug">{project.subtitle}</p>
           </div>
 
           {/* Action buttons */}
@@ -110,13 +110,13 @@ function ProjectCard({ project, index, inView }) {
                 href={project.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-8 h-8 rounded-lg border border-white/8 flex items-center justify-center text-white/35 hover:text-white hover:border-white/25 transition-all"
+                className="w-8 h-8 rounded-lg border border-slate-200 dark:border-slate-700 flex items-center justify-center text-slate-400 dark:text-slate-500 hover:text-slate-900 dark:hover:text-white hover:border-slate-300 dark:hover:border-slate-600 transition-all"
                 onClick={e => e.stopPropagation()}
               >
                 <Github size={14} />
               </a>
             ) : (
-              <div className="w-8 h-8 rounded-lg border border-white/5 flex items-center justify-center text-white/15 cursor-not-allowed" title="Restricted">
+              <div className="w-8 h-8 rounded-lg border border-slate-100 dark:border-slate-800 flex items-center justify-center text-slate-300 dark:text-slate-600 cursor-not-allowed" title="Restricted">
                 <Shield size={13} />
               </div>
             )}
@@ -125,7 +125,7 @@ function ProjectCard({ project, index, inView }) {
                 href={project.live}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-8 h-8 rounded-lg border border-white/8 flex items-center justify-center text-white/35 hover:text-white hover:border-white/25 transition-all"
+                className="w-8 h-8 rounded-lg border border-slate-200 dark:border-slate-700 flex items-center justify-center text-slate-400 dark:text-slate-500 hover:text-slate-900 dark:hover:text-white hover:border-slate-300 dark:hover:border-slate-600 transition-all"
                 onClick={e => e.stopPropagation()}
               >
                 <ExternalLink size={14} />
@@ -135,11 +135,11 @@ function ProjectCard({ project, index, inView }) {
         </div>
 
         {/* Description */}
-        <p className="text-[13px] text-white/48 leading-relaxed mb-4 flex-1">{project.description}</p>
+        <p className="text-[13px] text-slate-500 dark:text-slate-400 leading-relaxed mb-4 flex-1">{project.description}</p>
 
         {/* Restricted note */}
         {project.note && (
-          <div className="mb-4 flex items-center gap-2 text-[11px] text-white/25 font-mono bg-white/3 rounded-lg px-3 py-2 border border-white/6">
+          <div className="mb-4 flex items-center gap-2 text-[11px] text-slate-400 dark:text-slate-500 font-mono bg-slate-50 dark:bg-slate-800/60 rounded-lg px-3 py-2 border border-slate-100 dark:border-slate-800">
             <Shield size={10} />
             {project.note}
           </div>
@@ -151,7 +151,7 @@ function ProjectCard({ project, index, inView }) {
             <span
               key={tech}
               className="text-[11px] px-2.5 py-1 rounded-full font-mono border"
-              style={{ background: project.color + '0a', color: project.color + 'bb', borderColor: project.color + '18' }}
+              style={{ background: project.color + '0a', color: project.color, borderColor: project.color + '22' }}
             >
               {tech}
             </span>
@@ -167,7 +167,7 @@ export default function Projects() {
 
   return (
     <section id="projects" ref={ref} className="relative py-28 overflow-hidden">
-      <div className="orb w-80 h-80 bg-primary/4 bottom-0 right-0 pointer-events-none" />
+      <div className="orb w-80 h-80 bg-primary/5 bottom-0 right-0 pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         <motion.div
@@ -176,7 +176,7 @@ export default function Projects() {
           className="flex items-center gap-4 mb-5"
         >
           <span className="text-primary font-mono text-sm">03.</span>
-          <h2 className="text-4xl md:text-5xl font-black text-white">Projects</h2>
+          <h2 className="text-4xl md:text-5xl font-black text-slate-900 dark:text-white">Projects</h2>
           <div className="flex-1 h-px bg-gradient-to-r from-primary/30 to-transparent" />
         </motion.div>
 
@@ -184,7 +184,7 @@ export default function Projects() {
           initial={{ opacity: 0 }}
           animate={inView ? { opacity: 1 } : {}}
           transition={{ delay: 0.15 }}
-          className="text-white/38 text-sm font-mono mb-10"
+          className="text-slate-400 dark:text-slate-500 text-sm font-mono mb-10"
         >
           // 2 government · 2 personal · all production-deployed
         </motion.p>
