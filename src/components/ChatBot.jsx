@@ -112,23 +112,23 @@ function Bubble({ msg }) {
       className={`flex gap-2.5 ${isBot ? '' : 'flex-row-reverse'}`}
     >
       {/* Avatar */}
-      <div className={`w-7 h-7 rounded-full shrink-0 flex items-center justify-center ${
+      <div className={`w-7 h-7 shrink-0 flex items-center justify-center border ${
         isBot
-          ? 'bg-gradient-to-br from-primary/15 to-secondary/15 border border-primary/20'
-          : 'bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700'
+          ? 'bg-primary/10 border-primary/30'
+          : 'bg-line/40 border-line'
       }`}>
-        {isBot ? <Bot size={13} className="text-primary" /> : <User size={13} className="text-slate-500 dark:text-slate-400" />}
+        {isBot ? <Bot size={13} className="text-primary" /> : <User size={13} className="text-muted" />}
       </div>
 
       {/* Bubble */}
-      <div className={`max-w-[82%] px-3.5 py-2.5 rounded-2xl text-[13px] leading-relaxed whitespace-pre-wrap ${
+      <div className={`max-w-[82%] px-3.5 py-2.5 rounded-sm text-[13px] leading-relaxed whitespace-pre-wrap border ${
         isBot
-          ? 'bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-300 rounded-tl-sm'
-          : 'bg-gradient-to-br from-primary to-secondary border border-primary/20 text-white rounded-tr-sm'
+          ? 'bg-paper border-line text-ink/85'
+          : 'bg-ink border-ink text-paper'
       }`}>
         {msg.text.split(/(\*\*[^*]+\*\*)/).map((part, i) =>
           part.startsWith('**') && part.endsWith('**')
-            ? <strong key={i} className={isBot ? 'text-slate-900 dark:text-white font-semibold' : 'text-white font-semibold'}>{part.slice(2, -2)}</strong>
+            ? <strong key={i} className={isBot ? 'text-ink font-semibold' : 'text-paper font-semibold'}>{part.slice(2, -2)}</strong>
             : part
         )}
       </div>
@@ -139,10 +139,10 @@ function Bubble({ msg }) {
 function TypingDots() {
   return (
     <div className="flex gap-2.5">
-      <div className="w-7 h-7 rounded-full bg-gradient-to-br from-primary/15 to-secondary/15 border border-primary/20 flex items-center justify-center shrink-0">
+      <div className="w-7 h-7 bg-primary/10 border border-primary/30 flex items-center justify-center shrink-0">
         <Bot size={13} className="text-primary" />
       </div>
-      <div className="px-4 py-3 rounded-2xl rounded-tl-sm bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700 flex items-center gap-1.5">
+      <div className="px-4 py-3 rounded-sm bg-paper border border-line flex items-center gap-1.5">
         {[0, 1, 2].map(i => (
           <motion.div
             key={i}
@@ -223,19 +223,19 @@ export default function ChatBot() {
         </AnimatePresence>
 
         <motion.button
-          whileHover={{ scale: 1.08 }}
+          whileHover={{ scale: 1.06 }}
           whileTap={{ scale: 0.94 }}
           onClick={() => setOpen(o => !o)}
-          className="w-14 h-14 rounded-2xl bg-gradient-to-br from-primary to-secondary flex items-center justify-center shadow-xl shadow-primary/25 hover:shadow-primary/40 transition-shadow duration-300"
+          className="w-14 h-14 bg-primary flex items-center justify-center shadow-xl shadow-primary/25 hover:bg-ink transition-colors duration-300"
         >
           <AnimatePresence mode="wait">
             {open ? (
               <motion.div key="x" initial={{ rotate: -90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }} exit={{ rotate: 90, opacity: 0 }} transition={{ duration: 0.2 }}>
-                <X size={22} className="text-white" />
+                <X size={22} className="text-paper" />
               </motion.div>
             ) : (
               <motion.div key="chat" initial={{ rotate: 90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }} exit={{ rotate: -90, opacity: 0 }} transition={{ duration: 0.2 }}>
-                <MessageSquare size={22} className="text-white" />
+                <MessageSquare size={22} className="text-paper" />
               </motion.div>
             )}
           </AnimatePresence>
@@ -243,7 +243,7 @@ export default function ChatBot() {
 
         {/* Pulse ring when closed */}
         {!open && (
-          <div className="absolute inset-0 rounded-2xl border-2 border-primary/40 animate-ping pointer-events-none" />
+          <div className="absolute inset-0 border-2 border-primary/40 animate-ping pointer-events-none" />
         )}
       </div>
 
@@ -258,22 +258,22 @@ export default function ChatBot() {
             className="fixed bottom-24 right-6 z-50 w-[350px] sm:w-[390px] flex flex-col"
             style={{ maxHeight: 'min(540px, calc(100vh - 120px))' }}
           >
-            <div className="glass neon-border rounded-2xl overflow-hidden flex flex-col shadow-2xl shadow-slate-900/10 h-full">
+            <div className="bg-card border border-line overflow-hidden flex flex-col shadow-2xl shadow-black/15 h-full">
               {/* Header */}
-              <div className="flex items-center gap-3 px-4 py-3.5 border-b border-slate-200 dark:border-slate-800 bg-gradient-to-r from-primary/5 to-secondary/5 shrink-0">
-                <div className="w-8 h-8 rounded-xl bg-gradient-to-br from-primary/15 to-secondary/15 border border-primary/25 flex items-center justify-center">
+              <div className="flex items-center gap-3 px-4 py-3.5 border-b border-line bg-primary/5 shrink-0">
+                <div className="w-8 h-8 bg-primary/10 border border-primary/30 flex items-center justify-center">
                   <Sparkles size={15} className="text-primary" />
                 </div>
                 <div className="flex-1 min-w-0">
-                  <div className="font-semibold text-slate-900 dark:text-white text-[13px]">Gaurav's Assistant</div>
-                  <div className="flex items-center gap-1.5 text-[11px] text-slate-400 dark:text-slate-500 font-mono">
+                  <div className="font-serif font-bold text-ink text-[13px]">Gaurav's Assistant</div>
+                  <div className="flex items-center gap-1.5 text-[10px] tracking-[0.12em] uppercase text-muted font-mono">
                     <span className="w-1.5 h-1.5 rounded-full bg-accent animate-pulse" />
-                    Online · Ask me anything
+                    On record · Ask me anything
                   </div>
                 </div>
                 <button
                   onClick={() => setOpen(false)}
-                  className="w-7 h-7 rounded-lg bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 flex items-center justify-center text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-white transition-all"
+                  className="w-7 h-7 bg-line/40 hover:bg-line/70 flex items-center justify-center text-muted hover:text-ink transition-all"
                 >
                   <ChevronDown size={14} />
                 </button>
@@ -293,7 +293,7 @@ export default function ChatBot() {
                     <button
                       key={q}
                       onClick={() => send(q)}
-                      className="shrink-0 text-[11px] px-3 py-1.5 rounded-full border border-primary/20 text-primary/70 hover:text-primary hover:border-primary/50 hover:bg-primary/5 transition-all duration-200 font-mono whitespace-nowrap"
+                      className="shrink-0 text-[10px] px-3 py-1.5 border border-primary/30 text-primary/80 hover:text-paper hover:bg-primary transition-all duration-200 font-mono uppercase tracking-wide whitespace-nowrap"
                     >
                       {q}
                     </button>
@@ -302,23 +302,23 @@ export default function ChatBot() {
               )}
 
               {/* Input */}
-              <div className="px-3 pb-3 pt-2 border-t border-slate-200 dark:border-slate-800 shrink-0">
-                <div className="flex items-center gap-2 bg-slate-50 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700 rounded-xl px-3 py-2 focus-within:border-primary/40 transition-colors">
+              <div className="px-3 pb-3 pt-2 border-t border-line shrink-0">
+                <div className="flex items-center gap-2 bg-paper border border-line px-3 py-2 focus-within:border-primary/60 transition-colors">
                   <input
                     ref={inputRef}
                     value={input}
                     onChange={e => setInput(e.target.value)}
                     onKeyDown={handleKey}
                     placeholder="Ask about skills, projects..."
-                    className="flex-1 bg-transparent text-[13px] text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 outline-none font-mono"
+                    className="flex-1 bg-transparent text-[13px] text-ink placeholder-muted/60 outline-none font-mono"
                     disabled={typing}
                   />
                   <button
                     onClick={() => send(input)}
                     disabled={!input.trim() || typing}
-                    className="w-7 h-7 rounded-lg bg-gradient-to-br from-primary to-secondary flex items-center justify-center disabled:opacity-30 hover:shadow-md hover:shadow-primary/30 transition-all"
+                    className="w-7 h-7 bg-primary flex items-center justify-center disabled:opacity-30 hover:bg-ink transition-colors"
                   >
-                    <Send size={12} className="text-white" />
+                    <Send size={12} className="text-paper" />
                   </button>
                 </div>
               </div>

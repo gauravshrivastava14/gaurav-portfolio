@@ -5,25 +5,19 @@ export default {
   theme: {
     extend: {
       colors: {
-        primary: '#2563eb',
-        secondary: '#4f46e5',
-        accent: '#059669',
-        surface: '#f8fafc',
-        card: '#ffffff',
+        paper: 'rgb(var(--paper) / <alpha-value>)',
+        card: 'rgb(var(--card) / <alpha-value>)',
+        ink: 'rgb(var(--ink) / <alpha-value>)',
+        muted: 'rgb(var(--muted) / <alpha-value>)',
+        line: 'rgb(var(--line) / <alpha-value>)',
+        primary: 'rgb(var(--rust) / <alpha-value>)',
+        secondary: 'rgb(var(--ochre) / <alpha-value>)',
+        accent: 'rgb(var(--moss) / <alpha-value>)',
       },
       fontFamily: {
+        serif: ['Fraunces', 'Georgia', 'serif'],
+        sans: ['Archivo', 'system-ui', 'sans-serif'],
         mono: ['JetBrains Mono', 'Fira Code', 'monospace'],
-        sans: ['Inter', 'system-ui', 'sans-serif'],
-      },
-      animation: {
-        'float': 'float 6s ease-in-out infinite',
-        'spin-slow': 'spin 8s linear infinite',
-      },
-      keyframes: {
-        float: {
-          '0%, 100%': { transform: 'translateY(0px)' },
-          '50%': { transform: 'translateY(-20px)' },
-        },
       },
     },
   },

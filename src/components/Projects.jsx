@@ -1,7 +1,5 @@
-import { useState } from 'react'
-import { motion, AnimatePresence } from 'framer-motion'
+import { motion } from 'framer-motion'
 import { useInView } from 'react-intersection-observer'
-import { ExternalLink, Github, Shield, ArrowRight } from 'lucide-react'
 
 const projects = [
   {
@@ -11,12 +9,10 @@ const projects = [
     description:
       'Pan-India web portal for the Railway Protection Force to manage and analyze training and HR aptitude data. Built the entire system independently — Django backend, PostgreSQL, and role-based access for Zonal, Divisional, and Post-level officers. Deployed under supervision of DG, RPF.',
     stack: ['Django', 'Python', 'PostgreSQL', 'RBAC', 'JWT', 'Gunicorn'],
-    color: '#2563eb',
     badge: 'Government · National',
-    isGovt: true,
+    restricted: true,
     github: null,
-    live: null,
-    note: 'Source code is restricted — government project',
+    live: 'https://prathamv2.in/',
   },
   {
     id: 2,
@@ -25,12 +21,10 @@ const projects = [
     description:
       'Peer-to-peer skill exchange platform where users teach and learn through smart matching. Features JWT auth, user roles, profiles, ratings, real-time chat via Socket.IO, and scheduling workflows. Built with clean architecture from DB design to frontend.',
     stack: ['React.js', 'Node.js', 'Express.js', 'MongoDB', 'Socket.IO', 'JWT', 'Tailwind CSS'],
-    color: '#4f46e5',
     badge: 'Full Stack · Real-time',
-    isGovt: false,
+    restricted: false,
     github: 'https://github.com',
     live: 'https://example.com',
-    note: null,
   },
   {
     id: 3,
@@ -39,126 +33,103 @@ const projects = [
     description:
       'Backend modules for the Udyami Bharat 4.0 initiative under NPC, Delhi — supporting Industry 4.0 objectives. Built with PHP and MySQL, ensuring data integrity, security, and scalability in alignment with government compliance standards.',
     stack: ['PHP', 'MySQL', 'REST APIs', 'MVC Architecture'],
-    color: '#d97706',
     badge: 'Government · National',
-    isGovt: true,
+    restricted: true,
     github: null,
     live: null,
-    note: 'Source code is restricted — government project',
   },
   {
     id: 4,
+    title: 'PDFSetu',
+    subtitle: 'Browser-Based File Converter',
+    description:
+      'Privacy-first file conversion tool that runs entirely in the browser — batch PDF and document conversions plus PDF manipulation (merge, split, compress), with no uploads, no sign-up, and no limits. Files never leave the user\'s machine.',
+    stack: ['JavaScript', 'Python', 'Flask', 'HTML/CSS', 'Vercel'],
+    badge: 'Personal · Web Tool',
+    restricted: false,
+    github: 'https://github.com/gauravshrivastava14/converter-tool',
+    live: 'https://converter-tool-ugzl.vercel.app/',
+  },
+  {
+    id: 5,
     title: 'Personal Portfolio v1',
     subtitle: 'Developer Portfolio Website',
     description:
       'Personal portfolio to showcase projects, skills, and contact info. Responsive UI, project listings, and live deployment. Previously deployed on Render/Netlify. Now rebuilt with React + Tailwind for a better experience.',
     stack: ['React.js', 'Tailwind CSS', 'Netlify', 'Vite'],
-    color: '#059669',
     badge: 'Personal',
-    isGovt: false,
-    github: 'https://github.com',
+    restricted: false,
+    github: 'https://github.com/gauravshrivastava14/gaurav-portfolio',
     live: 'https://portfolio-h2qi.onrender.com',
-    note: null,
   },
 ]
 
-function ProjectCard({ project, index, inView }) {
-  const [hovered, setHovered] = useState(false)
-
+function CaseFile({ project, index, inView }) {
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 38 }}
+    <motion.article
+      initial={{ opacity: 0, y: 28 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
-      transition={{ delay: index * 0.1, ease: 'easeOut' }}
-      onHoverStart={() => setHovered(true)}
-      onHoverEnd={() => setHovered(false)}
-      className="glass neon-border rounded-2xl overflow-hidden group relative flex flex-col"
-      style={{ borderColor: hovered ? project.color + '40' : undefined, transition: 'border-color 0.3s' }}
+      transition={{ delay: index * 0.09, ease: 'easeOut' }}
+      className="group border-t border-line last:border-b py-10 grid md:grid-cols-12 gap-6 hover:bg-card/70 transition-colors duration-300 px-3 -mx-3"
     >
-      {/* Top accent */}
-      <div className="h-[3px] w-full" style={{ background: `linear-gradient(90deg, ${project.color}, transparent)` }} />
-
-      {/* Hover glow */}
-      <motion.div
-        animate={{ opacity: hovered ? 1 : 0 }}
-        transition={{ duration: 0.3 }}
-        className="absolute inset-0 pointer-events-none"
-        style={{ background: `radial-gradient(ellipse at 0% 0%, ${project.color}0d, transparent 55%)` }}
-      />
-
-      <div className="p-6 relative z-10 flex flex-col flex-1">
-        {/* Header */}
-        <div className="flex items-start justify-between mb-4">
-          <div className="flex-1 min-w-0">
-            <div className="flex items-center gap-2 mb-2 flex-wrap">
-              <span
-                className="text-[11px] font-mono px-2.5 py-0.5 rounded-full flex items-center gap-1.5"
-                style={{ background: project.color + '14', color: project.color }}
-              >
-                {project.isGovt && <Shield size={9} />}
-                {project.badge}
-              </span>
-            </div>
-            <h3 className="text-xl font-bold text-slate-900 dark:text-white leading-tight">{project.title}</h3>
-            <p className="text-[12px] text-slate-400 dark:text-slate-500 font-mono mt-0.5 leading-snug">{project.subtitle}</p>
-          </div>
-
-          {/* Action buttons */}
-          <div className="flex gap-2 ml-3 shrink-0">
-            {project.github ? (
-              <a
-                href={project.github}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-8 h-8 rounded-lg border border-slate-200 dark:border-slate-700 flex items-center justify-center text-slate-400 dark:text-slate-500 hover:text-slate-900 dark:hover:text-white hover:border-slate-300 dark:hover:border-slate-600 transition-all"
-                onClick={e => e.stopPropagation()}
-              >
-                <Github size={14} />
-              </a>
-            ) : (
-              <div className="w-8 h-8 rounded-lg border border-slate-100 dark:border-slate-800 flex items-center justify-center text-slate-300 dark:text-slate-600 cursor-not-allowed" title="Restricted">
-                <Shield size={13} />
-              </div>
-            )}
-            {project.live && (
-              <a
-                href={project.live}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-8 h-8 rounded-lg border border-slate-200 dark:border-slate-700 flex items-center justify-center text-slate-400 dark:text-slate-500 hover:text-slate-900 dark:hover:text-white hover:border-slate-300 dark:hover:border-slate-600 transition-all"
-                onClick={e => e.stopPropagation()}
-              >
-                <ExternalLink size={14} />
-              </a>
-            )}
-          </div>
+      {/* Nº */}
+      <div className="md:col-span-2">
+        <div className="font-serif font-black text-4xl md:text-5xl text-line group-hover:text-primary transition-colors duration-300 leading-none">
+          {String(index + 1).padStart(2, '0')}
         </div>
-
-        {/* Description */}
-        <p className="text-[13px] text-slate-500 dark:text-slate-400 leading-relaxed mb-4 flex-1">{project.description}</p>
-
-        {/* Restricted note */}
-        {project.note && (
-          <div className="mb-4 flex items-center gap-2 text-[11px] text-slate-400 dark:text-slate-500 font-mono bg-slate-50 dark:bg-slate-800/60 rounded-lg px-3 py-2 border border-slate-100 dark:border-slate-800">
-            <Shield size={10} />
-            {project.note}
-          </div>
-        )}
-
-        {/* Stack */}
-        <div className="flex flex-wrap gap-1.5">
-          {project.stack.map(tech => (
-            <span
-              key={tech}
-              className="text-[11px] px-2.5 py-1 rounded-full font-mono border"
-              style={{ background: project.color + '0a', color: project.color, borderColor: project.color + '22' }}
-            >
-              {tech}
-            </span>
-          ))}
+        <div className="font-mono text-[9px] tracking-[0.25em] uppercase text-muted mt-3">
+          Case file
         </div>
       </div>
-    </motion.div>
+
+      {/* Body */}
+      <div className="md:col-span-7">
+        <div className="font-mono text-[10px] tracking-[0.22em] uppercase text-primary mb-2">
+          {project.badge}
+        </div>
+        <h3 className="font-serif font-black text-2xl md:text-3xl text-ink leading-tight mb-1">
+          {project.title}
+        </h3>
+        <p className="font-mono text-[11px] tracking-[0.08em] text-muted uppercase mb-4">
+          {project.subtitle}
+        </p>
+        <p className="text-muted text-[14px] leading-[1.75] mb-4 max-w-xl">
+          {project.description}
+        </p>
+        <p className="font-mono text-[11px] text-muted/90 tracking-wide">
+          {project.stack.join(' / ')}
+        </p>
+      </div>
+
+      {/* Links + stamps */}
+      <div className="md:col-span-3 flex md:flex-col items-start md:items-end justify-between md:justify-start gap-4 md:gap-5 md:text-right">
+        <div className="flex md:flex-col gap-3 md:gap-2 font-mono text-[11px] tracking-[0.18em] uppercase">
+          {project.live && (
+            <a
+              href={project.live}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-ink hover:text-primary underline decoration-line underline-offset-4 hover:decoration-primary transition-colors"
+            >
+              View live ↗
+            </a>
+          )}
+          {project.github && (
+            <a
+              href={project.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-muted hover:text-primary underline decoration-line underline-offset-4 hover:decoration-primary transition-colors"
+            >
+              Source ↗
+            </a>
+          )}
+        </div>
+        {project.restricted && (
+          <span className="stamp md:mt-4">Restricted</span>
+        )}
+      </div>
+    </motion.article>
   )
 }
 
@@ -166,32 +137,34 @@ export default function Projects() {
   const [ref, inView] = useInView({ triggerOnce: true, threshold: 0.05 })
 
   return (
-    <section id="projects" ref={ref} className="relative py-28 overflow-hidden">
-      <div className="orb w-80 h-80 bg-primary/5 bottom-0 right-0 pointer-events-none" />
-
-      <div className="max-w-7xl mx-auto px-6 relative z-10">
+    <section id="projects" ref={ref} className="relative py-28">
+      <div className="max-w-6xl mx-auto px-6">
+        {/* Section header */}
         <motion.div
-          initial={{ opacity: 0, y: 18 }}
+          initial={{ opacity: 0, y: 14 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
-          className="flex items-center gap-4 mb-5"
+          className="mb-6"
         >
-          <span className="text-primary font-mono text-sm">03.</span>
-          <h2 className="text-4xl md:text-5xl font-black text-slate-900 dark:text-white">Projects</h2>
-          <div className="flex-1 h-px bg-gradient-to-r from-primary/30 to-transparent" />
+          <div className="font-mono text-[11px] tracking-[0.3em] uppercase text-primary mb-3">
+            File 03 / Selected work
+          </div>
+          <h2 className="font-serif font-black text-5xl md:text-6xl text-ink">
+            Case files<span className="text-primary">.</span>
+          </h2>
         </motion.div>
 
         <motion.p
           initial={{ opacity: 0 }}
           animate={inView ? { opacity: 1 } : {}}
           transition={{ delay: 0.15 }}
-          className="text-slate-400 dark:text-slate-500 text-sm font-mono mb-10"
+          className="font-mono text-[11px] tracking-[0.15em] uppercase text-muted mb-12"
         >
-          // 2 government · 2 personal · all production-deployed
+          2 government · 3 personal — all production-deployed
         </motion.p>
 
-        <div className="grid md:grid-cols-2 gap-6">
+        <div>
           {projects.map((project, i) => (
-            <ProjectCard key={project.id} project={project} index={i} inView={inView} />
+            <CaseFile key={project.id} project={project} index={i} inView={inView} />
           ))}
         </div>
       </div>
