@@ -72,7 +72,7 @@ export default function About() {
               animate={inView ? 'show' : 'hidden'}
               className="dropcap text-ink/85 leading-[1.8] text-[15px]"
             >
-              I'm a 20-year-old Computer Science undergraduate at Vindhya Institute of Technology
+              I'm a Computer Science graduate from Vindhya Institute of Technology
               and Science (RGPV), Satna — and I've already shipped two production systems for the
               Government of India. Not side projects. Real portals used by actual officers at the
               national level.
@@ -80,7 +80,7 @@ export default function About() {
 
             {[
               `The PRATHAM portal I built for the Railway Protection Force handles training and HR aptitude data for a Pan-India deployment. I designed the entire system — Django backend, PostgreSQL schema, role-based access for Zonal, Divisional, and Post-level users — working directly under the IG, RPF Lucknow.`,
-              `I don't wait to "feel ready." I pick up what the project needs — whether that's Django, PHP, React, or raw PostgreSQL — and I ship. That's the only way to build things that matter before your degree is done.`,
+              `I don't wait to "feel ready." I pick up what the project needs — whether that's Django, PHP, React, or raw PostgreSQL — and I ship. That's how I built things that mattered before the degree was even finished.`,
             ].map((text, i) => (
               <motion.p
                 key={i}

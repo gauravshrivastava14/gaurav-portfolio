@@ -6,7 +6,7 @@ const ROLES = [
   'Django & MERN Engineer',
   'RESTful API Developer',
   'Govt. Project Contributor',
-  'CS Student @ VITS RGPV',
+  'CS Grad @ VITS RGPV',
 ]
 
 const RECORD = [
@@ -98,7 +98,7 @@ export default function Hero() {
             transition={{ delay: 0.55 }}
             className="text-muted text-[15px] leading-relaxed max-w-[480px] mb-10"
           >
-            CS undergrad building real-world, production-grade web apps — from a{' '}
+            CS grad building real-world, production-grade web apps — from a{' '}
             <span className="text-ink font-medium border-b-2 border-primary/50">Pan-India government portal</span>{' '}
             for the RPF to peer-to-peer platforms with real-time features. I care about code
             that actually works, scales, and doesn't break at 2 AM.
@@ -190,7 +190,7 @@ export default function Hero() {
             {/* Stamps */}
             <div className="flex items-end justify-between">
               <span className="stamp">Shipped to production</span>
-              <span className="stamp stamp-moss rotate-3">B.Tech CSE '26</span>
+              <span className="stamp stamp-moss rotate-3">B.Tech CSE · Graduated</span>
             </div>
           </div>
         </motion.div>

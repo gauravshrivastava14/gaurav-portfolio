@@ -34,10 +34,10 @@ const timeline = [
     type: 'Education',
     role: 'B.Tech in Computer Science Engineering',
     org: 'Vindhya Institute of Technology and Science, Satna · RGPV',
-    period: 'Jan 2022 — May 2026',
+    period: 'Jan 2022 — Jun 2026',
     location: 'Satna, MP',
     points: [
-      'CGPA: 7.0 (up to 7th Semester).',
+      'Graduated June 2026 — CGPA: 7.0.',
       'Core subjects: Data Structures, Algorithms, DBMS, OS, Computer Networks.',
       'Built multiple full-stack projects during coursework — PRATHAM and SkillSwap among them.',
     ],

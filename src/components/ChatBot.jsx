@@ -19,7 +19,7 @@ const rules = [
   },
   {
     keys: ['who', 'about', 'gaurav', 'yourself', 'introduce', 'tell me'],
-    reply: () => `Gaurav Shrivastava is a 20-year-old Full Stack Developer and B.Tech CSE student at Vindhya Institute of Technology (RGPV), Satna, MP.\n\nHe's already shipped two production systems for the **Government of India** — including PRATHAM, a Pan-India portal for the Railway Protection Force. He builds with Django, React, Node.js, PostgreSQL, and PHP.`,
+    reply: () => `Gaurav Shrivastava is a Full Stack Developer and B.Tech CSE graduate from Vindhya Institute of Technology (RGPV), Satna, MP.\n\nHe's already shipped two production systems for the **Government of India** — including PRATHAM, a Pan-India portal for the Railway Protection Force. He builds with Django, React, Node.js, PostgreSQL, and PHP.`,
   },
   {
     keys: ['skill', 'tech', 'stack', 'know', 'language', 'framework', 'use', 'proficient'],
@@ -47,7 +47,7 @@ const rules = [
   },
   {
     keys: ['education', 'college', 'university', 'degree', 'study', 'cgpa', 'gpa', 'btech', 'b.tech', 'vits', 'rgpv'],
-    reply: () => `**B.Tech in Computer Science Engineering**\nVindhya Institute of Technology and Science, Satna (RGPV)\n📅 Jan 2022 – May 2026 · CGPA: **7.0** (up to 7th Semester)\n\nPreviously:\n• Class XII — Blooms Academy, Satna (2022)\n• Class X — Little Flower Public High School, Satna (2020)`,
+    reply: () => `**B.Tech in Computer Science Engineering**\nVindhya Institute of Technology and Science, Satna (RGPV)\n📅 Jan 2022 – June 2026 · CGPA: **7.0**\n🎓 Graduated June 2026\n\nPreviously:\n• Class XII — Blooms Academy, Satna (2022)\n• Class X — Little Flower Public High School, Satna (2020)`,
   },
   {
     keys: ['contact', 'reach', 'email', 'phone', 'message', 'connect', 'get in touch', 'linkedin', 'github'],
@@ -55,7 +55,7 @@ const rules = [
   },
   {
     keys: ['hire', 'available', 'open', 'opportunity', 'freelance', 'job', 'role', 'recruit', 'vacancy'],
-    reply: () => `Yes! Gaurav is currently **open to opportunities** 🟢\n\nHe's available for:\n• Full-time roles (Software Engineer / Full Stack Dev)\n• Freelance / contract projects\n• Internships\n• Interesting collaborations\n\nHe graduates in **May 2026**. You can message him at gauravshrivastava.web@gmail.com or use the Contact section below.`,
+    reply: () => `Yes! Gaurav is currently **open to opportunities** 🟢\n\nHe's available for:\n• Full-time roles (Software Engineer / Full Stack Dev)\n• Freelance / contract projects\n• Internships\n• Interesting collaborations\n\nHe graduated in **June 2026**. You can message him at gauravshrivastava.web@gmail.com or use the Contact section below.`,
   },
   {
     keys: ['django', 'python', 'backend', 'api', 'rest', 'server'],

@@ -90,7 +90,7 @@ export default function Contact() {
                 Let's work <span className="italic">together</span>
               </h3>
               <p className="text-muted leading-[1.8] text-[14px]">
-                I'm a B.Tech student who ships real government and personal projects.
+                I'm a B.Tech CSE graduate who ships real government and personal projects.
                 If you have an interesting problem, a role, or just want to connect — reach out.
                 I reply within 24 hours.
               </p>
@@ -124,7 +124,7 @@ export default function Contact() {
               </div>
               <p className="text-muted text-[12.5px] leading-relaxed">
                 Open to full-time roles, freelance projects, and internships.
-                Currently pursuing B.Tech (graduating May 2026).
+                B.Tech CSE — graduated June 2026.
               </p>
             </div>
           </motion.div>
